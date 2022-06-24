@@ -19,9 +19,9 @@ const GiderSchema = new mongoose.Schema({
         maxLength: [500, "Açıklama en fazla 500 karakter olabilir"]
     },
     amount:{
-        type:Float,
+        type:Number,
         required:[true,"Gider miktarını girmelisiniz"]
     }
 })
 
-mongoose.exports = mongoose.Schema.Gider || mongoose.model("Gider",GiderSchema)
+module.exports = mongoose.models.Gider || mongoose.model("Gider",GiderSchema)

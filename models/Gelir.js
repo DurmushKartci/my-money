@@ -19,9 +19,9 @@ const GelirSchema = new mongoose.Schema({
         maxLength: [500, "Açıklama en fazla 500 karakter olabilir"]
     },
     amount:{
-        type:Float,
+        type:Number,
         required:[true,"Gelir miktarını girmelisiniz"]
     }
 })
 
-mongoose.exports = mongoose.Schema.Gelir || mongoose.model("Gelir",GelirSchema)
+module.exports = mongoose.models .Gelir || mongoose.model("Gelir",GelirSchema)
