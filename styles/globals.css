@@ -1,3 +1,9 @@
+*:root{
+  --primary-color: #881010;
+  --primary-text-color: white;
+  --secondary-color: #f13232;
+}
+
 html,
 body {
   padding: 0;
@@ -13,4 +19,44 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+h1 {
+  text-align:center
+}
+
+.wrapper{
+  max-width:1200px;
+  padding: 0px 16px;
+  margin: auto;
+}
+
+.navbar{
+  padding:20px;
+  margin-bottom:20px;
+  background : var(--primary-color);
+  color: var(--primary-text-color);
+  display:flex;
+  justify-content:space-between
+}
+
+.navbar .create{
+  color: var(--primary-text-color);
+  font-size: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar .navbar-brand{
+  color: var(--primary-text-color);
+  font-size: 2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-brand:hover,.create:hover{
+
+  color: var(--secondary-text-color);
+  letter-spacing:1.5px;
+  transition: all 0.3s ease-in-out;
+
+
 }

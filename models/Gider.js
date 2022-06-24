@@ -21,7 +21,11 @@ const GiderSchema = new mongoose.Schema({
     amount:{
         type:Number,
         required:[true,"Gider miktarını girmelisiniz"]
-    }
+    },
+    date:{
+        type:Date,
+        required:[true,"Tarih belirlemelisiniz"]
+    } 
 })
 
 module.exports = mongoose.models.Gider || mongoose.model("Gider",GiderSchema)
