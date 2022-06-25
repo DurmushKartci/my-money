@@ -31,21 +31,19 @@ import {Line} from "react-chartjs-2"
 const Index = ({hareketler,grafik_assets,user}) =>{
   return (
     <div className="wrapper container">
-      <h1 className="col-12 text-center mb-1 mt-1" style={{fontSize:"50px",color:"black"}}>Ana Sayfa</h1>
+      <h1 className="col-12 text-center mb-1 mt-1" style={{fontSize:"50px",color:"black"}}>Gelir Sayfası</h1>
       <div className="row col-12 mt-1">
         <div className="col-lg-6">
           <div className="row">
-            <div className="col-12 row mb-3">
-              <div className="col-lg-6 wallet-container">
-                <Image src={require('../images/wallet.png')} width="150" height="150"/>
-              </div>
-              <div className="col-lg-3  wallet-right-container">
-                <h3 className="col-12 text-center">Cüzdanım:</h3>
-                <h1 className={`col-12 text-center ${(user.balanca<0?"red":"green")}`}>{user.balanca} ₺</h1>
-              </div>
-            </div>
             <div className="col-12 row">
               <Line data={grafik_assets.data} width={100} height={40} options={grafik_assets.options} />
+            </div>
+            <div className="col-12" style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+              <Button primary  style={{padding:"10px",margin:"20px"}}>
+                <Link href="/gelir/ekle">
+                  <a style={{color:"white",fontSize:"20px"}}>Gelir Ekle</a>
+                </Link>
+              </Button>
             </div>
           </div>          
         </div>
@@ -96,12 +94,6 @@ Index.getInitialProps = async ()=>{
     gelir["is_gelir"] = true
     data.push(gelir)
   })
-
-  giderler.map(gider =>{
-    gider["is_gelir"] = false
-    data.push(gider)
-  })
-
   data.sort((a,b) =>{
     return new Date(b.date).getTime() - new Date(a.date).getTime()
   })
@@ -116,15 +108,10 @@ Index.getInitialProps = async ()=>{
     ],
   }
 
-  let balance = 0
+  
   data.map(hareket=>{
-    if(hareket.is_gelir){
-      balance += hareket.amount
-    }else{
-      balance -= hareket.amount
-    }
     grafik_data.labels.push(hareket.title)
-    grafik_data.datasets[0].data.push(balance)
+    grafik_data.datasets[0].data.push(hareket.amount)
     
   })
 

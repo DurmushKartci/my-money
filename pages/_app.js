@@ -1,5 +1,6 @@
 import 'semantic-ui-css/semantic.min.css'
 import '../styles/globals.css'
+import '../styles/Home.module.css'
 import '../styles/bootstrap/css/bootstrap.css'
 import Layout from "../components/Layout"
 

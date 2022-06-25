@@ -1,6 +1,7 @@
 import dbConnect from "../../../utils/dbConnect"
 import Gelir from "../../../models/Gelir"
 import Gider from "../../../models/Gider"
+import User from "../../../models/User"
 
 dbConnect();
 
@@ -14,11 +15,17 @@ export default async (req,res)=>{
 
                 const giderler = await Gider.find({});
 
+                let user = await User.find({});
+                
+                user = user[0]
+
                 res.status(200).json({
                     success: true,
-                    message: "Gelir Giderler başarılı bir şekilde çekildi.",
+                    message: "Gelir Giderler user başarılı bir şekilde çekildi.",
                     gelirler: gelirler,
-                    giderler: giderler,                    
+                    giderler: giderler,   
+                    user:user
+                                     
                 })
             } catch (error) {
                 res.status(400).json({

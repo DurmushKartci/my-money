@@ -14,13 +14,18 @@ const UserSchema = new mongoose.Schema({
     },
     name:{
         type:String,
-        required:false,
+        required:true,
         maxLength: [100, "İsminiz en fazla 100 karakter olabilir"]
     },
     surname:{
         type:String,
-        required:false,
+        required:true,
         maxLength: [100, "Soyisminiz en fazla 100 karakter olabilir"]
+    },
+    balanca:{
+        type:Number,
+        required:false,
+        default:0       
     }
 })
 
